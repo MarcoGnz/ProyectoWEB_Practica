@@ -35,22 +35,24 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'Servicios' %}">Servicios</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'Servicios' %}active{% endif %}" href="{% url 'Servicios' %}">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'Tienda' %}">Tienda</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'Tienda' %}active{% endif %}" href="{% url 'Tienda' %}">Tienda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'Blog' %}">Blog</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'Blog' %}active{% endif %}" href="{% url 'Blog' %}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'Contacto' %}">Contacto</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'Contacto' %}active{% endif %}" href="{% url 'Contacto' %}">Contacto</a>
                     </li>
                 </ul>
             </div>
+            
+            
         </div>
     </nav>
 
@@ -60,7 +62,7 @@
     {% endblock %}
 
     <!-- Footer -->
-    <footer class="footer text-faded text-center py-5 bg-dark text-white fixed-bottom w-100">
+    <footer class="footer text-faded text-center bg-dark text-white fixed-bottom w-100">
         <div class="container">
             <p class="m-0">
                 <a href="#" class="link">
