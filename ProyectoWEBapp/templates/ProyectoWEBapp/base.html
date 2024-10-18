@@ -3,7 +3,7 @@
 
 <head>
 
-    {%load static%}
+    {% load static %}
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,9 +17,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
 
-
     <!-- Styles -->
     <link href="{% static 'ProyectoWEBapp/css/gestion.css' %}" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            min-height: 100vh; /* Hace que el cuerpo tenga al menos la altura de la ventana */
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1; /* Esto hace que el contenido principal ocupe todo el espacio restante */
+            padding-bottom: 100px; /* Espaciado para que el contenido no quede superpuesto por el footer */
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -51,18 +70,17 @@
                     </li>
                 </ul>
             </div>
-            
-            
         </div>
     </nav>
 
-
-    {% block content %}
-
-    {% endblock %}
+    <!-- Contenido Principal -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 
     <!-- Footer -->
-    <footer class="footer text-faded text-center bg-dark text-white fixed-bottom w-100">
+    <footer class="footer text-center bg-dark text-white">
         <div class="container">
             <p class="m-0">
                 <a href="#" class="link">
@@ -84,12 +102,12 @@
                     </span>
                 </a>
             </p>
-            <p class="m-0 mbt">
+            <p class="m-0">
                 <a href="sample.html" class="link">Política de privacidad</a> ·
                 <a href="sample.html" class="link">Aviso legal</a> ·
                 <a href="sample.html" class="link">Cookies</a>
             </p>
-            <p class="m-0 mbt1">&copy; Gestión de Pedidos 2020</p>
+            <p class="m-0">&copy; Gestión de Pedidos 2020</p>
         </div>
     </footer>
 
@@ -99,6 +117,5 @@
     <script src="{% static 'ProyectoWEBapp/vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
 
 </body>
-
 
 </html>

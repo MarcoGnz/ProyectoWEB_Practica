@@ -11,7 +11,15 @@
                 <h1 class="text-center text-white">Nuestros Servicios</h1>
                 <p class="lead text-center text-white">Aquí puedes encontrar información sobre los servicios que ofrecemos.</p>
                 <div class="text-center">
-                    <a href="#" class="btn btn-primary btn-lg">Saber más</a>
+                    {% for servicio in servicios %}
+                    <div  class="bg-dark text-light p-4 my-3 rounded">
+                        <p>
+                            <h2>{{servicio.titulo}}</h2>
+                            <p>{{servicio.contenido}}</p>
+                            <img width="50%%" src="{{servicio.imagen.url}}" alt="">
+                        </p>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
