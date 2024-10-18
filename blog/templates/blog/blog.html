@@ -5,7 +5,7 @@
 {% block content %}
 
 <!-- Contenido de la página -->
-<section> 
+<section>
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -34,13 +34,17 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <h2 class="text-center text-white mb-4">Categorías</h2>
+
                 <div class="d-flex flex-wrap justify-content-center">
                     {% for post in posts %}
-                        {% for categoria in post.categoria.all %}
-                        <span class="badge bg-primary m-2">{{ categoria.nombre }}</span>
-                        {% endfor %}
+                    {% for categoria in post.categoria.all %}
+                    <a href="{% url 'categorias' categoria.id %}">
+                    <span class="badge bg-primary m-2">{{ categoria.nombre }}</span>
+                    </a>
+                    {% endfor %}
                     {% endfor %}
                 </div>
+
             </div>
         </div>
     </div>
