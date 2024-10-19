@@ -4,9 +4,6 @@ from blog.models import Categoria, Post
 
 def blog(request):
     post = Post.objects.all()
-    
-    
-    
     return render(request, 'blog/blog.html' , {"posts": post})
 
 def categoria(request, categoria_id ):

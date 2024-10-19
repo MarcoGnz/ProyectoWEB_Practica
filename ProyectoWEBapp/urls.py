@@ -9,7 +9,6 @@ urlpatterns = [
 
     path("tienda", views.tienda, name='Tienda'),
     
-    path("conectato", views.contacto, name='Contacto'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

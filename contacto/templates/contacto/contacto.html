@@ -1,0 +1,39 @@
+{% extends "ProyectoWEBapp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<!-- Contenido de la página -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="text-center text-white">Contacto</h1>
+            <p class="lead text-center text-white">Aquí puedes encontrar información sobre nuestro contacto</p>
+            <div class="text-center">
+                <div style="background-color: rgb(124, 76, 76); padding: 20px; border-radius: 10px; width: 100%; max-width: 400px; margin: 20px auto; box-shadow: 0 4px 8px rgba(60, 30, 30, 0.3);">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div style="margin-bottom: 15px;">
+                            {{ miformulario.nombre.label_tag }}<br>
+                            {{ miformulario.nombre }}
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            {{ miformulario.email.label_tag }}<br>
+                            {{ miformulario.email }}
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            {{ miformulario.contenido.label_tag }}<br>
+                            {{ miformulario.contenido }}
+                        </div>
+                        <button type="submit" style="background-color: #333; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%;">Enviar</button>
+                    </form>
+                </div>
+                
+                <a href="#" class="btn btn-primary btn-lg">Saber más</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
