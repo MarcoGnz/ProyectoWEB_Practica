@@ -9,7 +9,9 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+from dotenv import load_dotenv
+load_dotenv()
+from os import environ
 from pathlib import Path
 import os
 
@@ -132,3 +134,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# configuracioon de email
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = environ.get('EMAIL_BACKEND_HOST')
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587 
+EMAIL_HOST_USER = environ.get('EMAIL_BACKEND_USER')
+EMAIL_HOST_PASSWORD = environ.get('EMAIL_BACKEND_PASS')

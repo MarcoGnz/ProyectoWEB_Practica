@@ -11,6 +11,9 @@
             <p class="lead text-center text-white">Aquí puedes encontrar información sobre nuestro contacto</p>
             <div class="text-center">
                 <div style="background-color: rgb(124, 76, 76); padding: 20px; border-radius: 10px; width: 100%; max-width: 400px; margin: 20px auto; box-shadow: 0 4px 8px rgba(60, 30, 30, 0.3);">
+                    {% if "valido" in request.GET %}
+                        <p>Informacion enviada correctamente</p>
+                    {% endif %}
                     <form method="POST">
                         {% csrf_token %}
                         <div style="margin-bottom: 15px;">

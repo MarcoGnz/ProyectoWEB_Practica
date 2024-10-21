@@ -1,0 +1,28 @@
+# Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Django
+*.log
+*.pot
+*.pyc
+db.sqlite3
+
+
+# Virtual environment
+venv/
+
+# PostgreSQL
+*.psql
+*.pgdump
+*.pgbackups
+*.pg_stat_tmp
+
+# variables de entorno 
+*.env
+
+#datos de prueba
+Carga.py
+datos.json
+config.txt
