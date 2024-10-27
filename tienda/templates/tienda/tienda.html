@@ -1,0 +1,42 @@
+{% extends "ProyectoWEBapp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+  <!-- Contenido de la página -->
+<div class="container mt-5">
+    <h1 class="text-center text-white">Tienda</h1>
+    <div class="row">
+        {% for p in productos %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <!-- Imagen del producto -->
+                {% if p.imagen %}
+                <img src="{{ p.imagen.url }}" class="card-img-top" alt="{{ p.nombre }}" style="max-height: 200px; object-fit: cover;">
+                {% else %}
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Sin imagen disponible" style="max-height: 200px; object-fit: cover;">
+                {% endif %}
+                
+                <!-- Contenido de la tarjeta -->
+                <div class="card-body">
+                    <h5 class="card-title">{{ p.nombre }}</h5>
+                    <p class="card-text">{{ p.descripcion|truncatewords:15 }}</p>
+                    <p class="card-text"><strong>Precio:</strong> ${{ p.precio }}</p>
+                    <p class="card-text"><strong>Stock:</strong> {{ p.stock }}</p>
+                </div>
+                
+                <!-- Botón o enlace para más detalles -->
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary btn-block">Ver detalles</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-white">No hay productos disponibles en este momento.</p>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
