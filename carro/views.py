@@ -6,29 +6,29 @@ from tienda.models  import Producto
 
 # Create your views here.
 
-def agragar_producto(request, prodcuto_id):
+def agragar_producto(request, producto_id):
   carro = Carro(request)
-  producto = Producto.objects.get(id=prodcuto_id)
+  producto = Producto.objects.get(id=producto_id)
   carro.agregar(producto=producto)
   
-  return redirect("tienda")
+  return redirect("Tienda")
 
 def eliminar_producto(request, prodcuto_id):
   carro = Carro(request)
   producto = Producto.objects.get(id=prodcuto_id)
   carro.eliminar(producto=producto)
   
-  return redirect("tienda")
+  return redirect("Tienda")
 
-def restar_producto(request, prodcuto_id):
+def restar_producto(request, producto_id):
   carro = Carro(request)
-  producto = Producto.objects.get(id=prodcuto_id)
+  producto = Producto.objects.get(id=producto_id)
   carro.restar_producto(producto=producto)
   
-  return redirect("tienda")
+  return redirect("Tienda")
 
 def limpiar_carro(request, prodcuto_id):
   carro = Carro(request)
   carro.limpiar_carro()
   
-  return redirect("tienda")
+  return redirect("Tienda")
