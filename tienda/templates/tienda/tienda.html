@@ -4,16 +4,15 @@
 
 {% block content %}
 
-  <!-- Contenido de la página -->
 <div class="container mt-5">
-    <h1 class="text-center text-white">Tienda</h1>
-    <div style="float:right; ">
-        {% include 'carro/widget.html'%}
+    <h1 class="text-center text-white mb-4">Tienda</h1>
+    <div class="mb-4">
+        {% include 'carro/widget.html' %}
     </div>
     <div class="row">
         {% for p in productos %}
         <div class="col-md-4 mb-4">
-            <div class="card h-100">
+            <div class="card h-100 shadow-sm">
                 <!-- Imagen del producto -->
                 {% if p.imagen %}
                 <img src="{{ p.imagen.url }}" class="card-img-top" alt="{{ p.nombre }}" style="max-height: 200px; object-fit: cover;">
@@ -22,16 +21,12 @@
                 {% endif %}
                 
                 <!-- Contenido de la tarjeta -->
-                <div class="card-body">
+                <div class="card-body d-flex flex-column">
                     <h5 class="card-title">{{ p.nombre }}</h5>
                     <p class="card-text">{{ p.descripcion|truncatewords:15 }}</p>
-                    <p class="card-text"><strong>Precio:</strong> ${{ p.precio }}</p>
+                    <p class="card-text"><strong>Precio:</strong> ${{ p.precio|floatformat:2 }}</p>
                     <p class="card-text"><strong>Stock:</strong> {{ p.stock }}</p>
-                </div>
-                
-                <!-- Botón o enlace para más detalles -->
-                <div class="card-footer">
-                    <a href="{% url 'carro:agregar' p.id %}" class="btn btn-primary btn-block">Agregar al carro</a>
+                    <a href="{% url 'carro:agregar' p.id %}" class="btn btn-primary mt-auto">Agregar al carro</a>
                 </div>
             </div>
         </div>
@@ -40,6 +35,5 @@
         {% endfor %}
     </div>
 </div>
-
 
 {% endblock %}

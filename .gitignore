@@ -26,3 +26,6 @@ venv/
 Carga.py
 datos.json
 config.txt
+
+
+.vscode

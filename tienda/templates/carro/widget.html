@@ -13,23 +13,25 @@
         {% if request.session.carro.items %}
           {% for item, value in request.session.carro.items %}
             <tr>
-              <td>{{value.nombre}}</td>
-              <td>{{value.cantidad}}</td>
+              <td>{{ value.nombre }}</td>
+              <td>{{ value.cantidad }}</td>
               <td>
-                <a href="{% url 'carro:agregar' value.producto_id %}" class="btn btn-sm btn.success text-white">+</a>
-                <a href="{% url 'carro:restar' value.producto_id %}" class="btn btn-sm btn.success text-white">-</a>
-                {{value.precio}} $
+                <a href="{% url 'carro:agregar' value.producto_id %}" class="btn btn-sm btn-success text-white">+</a>
+                <a href="{% url 'carro:restar' value.producto_id %}" class="btn btn-sm btn-danger text-white">-</a>
+                ${{ value.precio|floatformat:2 }}
               </td>
             </tr>
           {% endfor %}
         {% else %}
-          <tr><td colspan="3">No hay productos en el carrito</td></tr>
+          <tr><td colspan="3" class="text-center">No hay productos en el carrito</td></tr>
         {% endif %}
       </tbody>
-      <tbody>
+      <tfoot>
         <tr>
-          <td colspan="3"><p style="color: aqua;">Total: {{importe_total_carro}} $</p></td>
-      </tbody>
+          <td colspan="2" class="text-right"><strong>Total:</strong></td>
+          <td><p class="text-aqua mb-0">{{ importe_total_carro|floatformat:2 }} $</p></td>
+        </tr>
+      </tfoot>
     </table>
   </div>
 </div>

@@ -13,7 +13,7 @@ class Carro:
       self.carro[producto.id] = {
         'producto_id':producto.id,
         'nombre' : producto.nombre,
-        'precio' : str(producto.precio),
+        'precio': f"{producto.precio:.2f}",  # Formato con dos decimales        
         'cantidad' : 1,
         'imagen' : producto.imagen.url
       }
@@ -21,7 +21,7 @@ class Carro:
       for  key, value in self.carro.items():
         if key == str(producto.id):
           self.carro[key]['cantidad'] += 1
-          value['precio'] = float(value['precio']) + float(producto.precio)
+          value['precio'] = f"{round(float(value['precio']) + float(producto.precio), 2):.2f}"  # Actualiza y limita a dos decimales
           break
     self.guardar_carro()
     
@@ -39,7 +39,7 @@ class Carro:
     for  key, value in self.carro.items():
         if key == str(producto.id):
           self.carro[key]['cantidad'] -= 1
-          value['precio'] = float(value['precio']) - float(producto.precio)
+          value['precio'] = f"{round(float(value['precio']) - float(producto.precio), 2):.2f}"  # Resta y limita a dos decimales
           if  self.carro[key]['cantidad'] < 1:
             self.eliminar(producto)
           break
