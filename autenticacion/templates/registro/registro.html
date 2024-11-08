@@ -1,18 +1,25 @@
 {% extends "ProyectoWEBapp/base.html" %}
 
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <!-- Contenido de la página -->
 
-<form action="" method="post">
-
-  {% csrf_token %}
-
-  {{form}}
-
-  <input type="submit" class="btn btn-button"  value="Enviar">
-  
-</form>
+<div class="container mt-5 d-flex justify-content-center">
+  <form action="" method="post" class="p-4 rounded" style="background-color: #2b2b2b; width: 75%;">
+    {% csrf_token %}
+    
+    <h2 class="text-center mb-4 text-light">Formulario de Registro</h2>
+    
+    <div class="form-group text-light">
+      {{ form|crispy }}
+    </div>
+    
+    <div class="d-flex justify-content-center mt-3">
+      <input type="submit" class="btn btn-primary" value="Enviar">
+    </div>
+  </form>
+</div>
 
 {% endblock %}

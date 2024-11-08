@@ -13,6 +13,7 @@ db.sqlite3
 # Virtual environment
 venv/
 
+
 # PostgreSQL
 *.psql
 *.pgdump
@@ -29,3 +30,4 @@ config.txt
 
 
 .vscode
+env_proyectoWEB

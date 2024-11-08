@@ -47,7 +47,9 @@ INSTALLED_APPS = [
     'contacto',
     'tienda',
     'carro',
-    'autenticacion'
+    'autenticacion',
+    'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +149,5 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587 
 EMAIL_HOST_USER = environ.get('EMAIL_BACKEND_USER')
 EMAIL_HOST_PASSWORD = environ.get('EMAIL_BACKEND_PASS')
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
