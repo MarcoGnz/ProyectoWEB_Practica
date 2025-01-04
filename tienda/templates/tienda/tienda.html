@@ -7,19 +7,28 @@
 <div class="container mt-5">
     <h1 class="text-center text-white mb-4">Tienda</h1>
     <div class="mb-4">
+        {% if request.user.is_authenticated %}
         {% include 'carro/widget.html' %}
+        {% else %}
+        <span class="alert alert-warning d-inline-block">
+            Inicia sesión para ver el carro
+        </span>
+        {% endif %}
     </div>
+
     <div class="row">
         {% for p in productos %}
         <div class="col-md-4 mb-4">
             <div class="card h-100 shadow-sm">
                 <!-- Imagen del producto -->
                 {% if p.imagen %}
-                <img src="{{ p.imagen.url }}" class="card-img-top" alt="{{ p.nombre }}" style="max-height: 200px; object-fit: cover;">
+                <img src="{{ p.imagen.url }}" class="card-img-top" alt="{{ p.nombre }}"
+                    style="max-height: 200px; object-fit: cover;">
                 {% else %}
-                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Sin imagen disponible" style="max-height: 200px; object-fit: cover;">
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Sin imagen disponible"
+                    style="max-height: 200px; object-fit: cover;">
                 {% endif %}
-                
+
                 <!-- Contenido de la tarjeta -->
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">{{ p.nombre }}</h5>

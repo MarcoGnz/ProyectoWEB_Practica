@@ -23,14 +23,14 @@
     <!-- Custom Styles -->
     <style>
         body {
-            min-height: 100vh; /* Hace que el cuerpo tenga al menos la altura de la ventana */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
         main {
-            flex: 1; /* Esto hace que el contenido principal ocupe todo el espacio restante */
-            padding-bottom: 100px; /* Espaciado para que el contenido no quede superpuesto por el footer */
+            flex: 1;
+            padding-bottom: 100px;
         }
 
         footer {
@@ -46,15 +46,15 @@
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">Mi Sitio Web</a>
+            <a class="navbar-brand" href="{% url 'Home' %}">Mi Sitio Web</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Inicio</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'Home' %}active{% endif %}" href="{% url 'Home' %}">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'Servicios' %}active{% endif %}" href="{% url 'Servicios' %}">Servicios</a>
@@ -69,9 +69,26 @@
                         <a class="nav-link {% if request.resolver_match.url_name == 'Contacto' %}active{% endif %}" href="{% url 'Contacto' %}">Contacto</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav ms-auto">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Bienvenido, {{ user.username }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'Cerrar_session' %}">Cerrar sesión</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'Logear' %}">Iniciar sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'Autenticacion' %}">Registrarse</a>
+                        </li>
+                    {% endif %}
+                </ul>
             </div>
         </div>
-    </nav>
+    </nav> 
 
     <!-- Contenido Principal -->
     <main>

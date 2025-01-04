@@ -15,6 +15,8 @@ from os import environ
 from pathlib import Path
 import os
 
+from django.contrib.messages import constants as messages
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -47,6 +49,7 @@ INSTALLED_APPS = [
     'contacto',
     'tienda',
     'carro',
+    'pedidos',
     'autenticacion',
     'crispy_forms',
     'crispy_bootstrap4',
@@ -151,3 +154,11 @@ EMAIL_HOST_USER = environ.get('EMAIL_BACKEND_USER')
 EMAIL_HOST_PASSWORD = environ.get('EMAIL_BACKEND_PASS')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'debug',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'danger', 
+}
